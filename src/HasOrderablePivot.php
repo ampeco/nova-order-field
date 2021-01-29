@@ -3,6 +3,7 @@
 namespace MichielKempen\NovaOrderField;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Spatie\EloquentSortable\Sortable;
