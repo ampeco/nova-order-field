@@ -45,7 +45,7 @@ trait HasOrderablePivot
 
         $relationship = $resource::newModel()->{$request->viaRelationship}();
 
-        if(!$relationship || $relationship instanceof HasMany || !$relationship->getPivotClass()) {
+        if(!$relationship || !$relationship instanceof BelongsToMany) {
             return;
         }
 
