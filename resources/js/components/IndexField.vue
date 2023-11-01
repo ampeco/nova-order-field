@@ -53,9 +53,6 @@ export default {
             return this.$parent.resource.id.value;
         },
     },
-    mounted() {
-        console.log('new nova-order-field mounted12345')
-    },
     methods: {
         reorderResource(direction) {
             Nova.request()
