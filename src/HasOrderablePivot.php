@@ -3,6 +3,7 @@
 namespace MichielKempen\NovaOrderField;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Spatie\EloquentSortable\Sortable;
 
@@ -44,7 +45,7 @@ trait HasOrderablePivot
 
         $relationship = $resource::newModel()->{$request->viaRelationship}();
 
-        if(!$relationship || !$relationship->getPivotClass()) {
+        if(!$relationship || !$relationship instanceof BelongsToMany) {
             return;
         }
 

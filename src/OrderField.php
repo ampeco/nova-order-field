@@ -37,7 +37,7 @@ class OrderField extends Field
      * @param  string  $attribute
      * @return mixed
      */
-    protected function resolveAttribute($resource, $attribute)
+    protected function resolveAttribute($resource, string $attribute): mixed
     {
         $request = app(NovaRequest::class);
 
@@ -85,7 +85,7 @@ class OrderField extends Field
      *
      * @param mixed $resource
      * @param  string  $resourceClass
-     * @return void
+     * @return array
      */
     protected function getResourcePosition($resource, $resourceClass)
     {
@@ -97,8 +97,8 @@ class OrderField extends Field
         $last = $resourceClass::$orderedExtrema[1] ?? null;
 
         return [
-            'first' => $first ? ($first->id === $resource->id) : false,
-            'last' => $last ? ($last->id === $resource->id) : false,
+            'first' => $first ? ($first->getKey() === $resource->getKey()) : false,
+            'last'  => $last ? ($last->getKey() === $resource->getKey()) : false,
         ];
     }
 }
